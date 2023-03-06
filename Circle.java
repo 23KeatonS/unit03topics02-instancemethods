@@ -29,7 +29,7 @@ public class Circle {
         if(this.intersectWith(other)){
             return false;
         }else{
-           if(other.r<this.r){
+           if(other.r+this.position.distanceTo(other.position)<this.r){
             return true;
            } 
            return false;
@@ -41,7 +41,7 @@ public class Circle {
     
     public static void main(String[] args) {
         Point2D bruh1 = new Point2D(0, 0);
-        Point2D bruh2 = new Point2D(-20, 0);
+        Point2D bruh2 = new Point2D(-.9, 0);
 
         Circle circle = new Circle(bruh1,5);
         Circle circle2 = new Circle(bruh2,4);
