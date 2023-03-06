@@ -26,23 +26,28 @@ public class Circle {
      
     public boolean contains(Circle other){
 
-        
+        if(this.intersectWith(other)){
+            return false;
+        }else{
+           if(other.r<this.r){
+            return true;
+           } 
+           return false;
+        }
 
-
-
-        return false;
     }
     
 
     
     public static void main(String[] args) {
         Point2D bruh1 = new Point2D(0, 0);
-        Point2D bruh2 = new Point2D(-1, 0);
+        Point2D bruh2 = new Point2D(-20, 0);
 
         Circle circle = new Circle(bruh1,5);
         Circle circle2 = new Circle(bruh2,4);
         System.out.println(circle.intersectWith(circle2));
         System.out.println(circle2.intersectWith(circle));
+        System.out.println(circle.contains(circle2));
     }
 
 
