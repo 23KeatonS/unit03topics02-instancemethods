@@ -14,22 +14,35 @@ public class Circle {
         return(2*Math.PI*r);
     }
     public boolean intersectWith(Circle other){
-        double xLeft = other.position.getX()-other.r;
-        double xRight = other.position.getX()+other.r;
-        double yTop = other.position.getY()+other.r;
-        double yBot = other.position.getY()-other.r;
-        double selfLeft = this.position.getX()-r;
-        double selfRight = this.position.getX()+r;
-        double selfTop = this.position.getY()+r;
-        double selfBot = this.position.getY()-r;
-        if (selfLeft<xRight&& selfLeft>xLeft){
-            return true;
-        }
-        if(selfRight>xLeft&&selfRight<xRight){
-            return true;
+
+        if(this.position.distanceTo(other.position)<=this.r+other.r){
+            return(this.position.distanceTo(other.position)>=Math.abs(this.r-other.r));
         }
         return false;
         
+    }
+
+
+     
+    public boolean contains(Circle other){
+
+        
+
+
+
+        return false;
+    }
+    
+
+    
+    public static void main(String[] args) {
+        Point2D bruh1 = new Point2D(0, 0);
+        Point2D bruh2 = new Point2D(-1, 0);
+
+        Circle circle = new Circle(bruh1,5);
+        Circle circle2 = new Circle(bruh2,4);
+        System.out.println(circle.intersectWith(circle2));
+        System.out.println(circle2.intersectWith(circle));
     }
 
 
